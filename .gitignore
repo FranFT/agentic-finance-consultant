@@ -1,2 +1,2 @@
 /.venv/
-conf.ini
+/config/dev.env
