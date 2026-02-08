@@ -1,22 +1,24 @@
 from app_settings import AppSettings
-from langchain.agents import create_agent
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 # Loading dev settings
 app_settings = AppSettings(env_file='config/dev.env')
 
-def get_weather(city: str) -> str:
-    return f"It's always sunny in {city}"
-
-
-agent = create_agent(
-    model = "claude-opus-4-6",
-    tools=[get_weather],
-    system_prompt="You are a helpful assistant",
+# Define Gemini Model
+model = ChatGoogleGenerativeAI(
+    model='gemini-flash-lite-latest',
 )
 
-agent.invoke(
-    {"messages": [{"role": "user", "content":"what is the weather in sf"}]}
-)
+message = [
+    (
+        "system",
+        "You are a helpful assitant that translates English to French. Translate the user sentence.",
+    ),
+    (
+        "human",
+        "I love programming."
+    ),
+]
 
-
-
+ai_msg = model.invoke(message)
+print(ai_msg)
