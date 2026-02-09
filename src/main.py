@@ -1,8 +1,13 @@
 from app_settings import AppSettings
+from document_loader import DocumentLoader
+
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 # Loading dev settings
 app_settings = AppSettings(env_file='config/dev.env')
+
+# Document loader
+loader = DocumentLoader('input/invoice-0-4.pdf')
 
 # Define Gemini Model
 model = ChatGoogleGenerativeAI(
@@ -16,9 +21,10 @@ message = [
     ),
     (
         "human",
-        "I received an invoice for €5,500 for 'coffee consulting services' on a Sunday. Does it seem suspicious to you? Justify your answer."
+        f"I received an invoice {loader.docs[0]}. Does it seem suspicious to you? Justify your answer."
     ),
 ]
 
 ai_msg = model.invoke(message)
 print(ai_msg)
+
