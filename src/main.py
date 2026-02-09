@@ -6,17 +6,17 @@ app_settings = AppSettings(env_file='config/dev.env')
 
 # Define Gemini Model
 model = ChatGoogleGenerativeAI(
-    model='gemini-flash-lite-latest',
+    model=app_settings.google_gemini_model_name,
 )
 
 message = [
     (
         "system",
-        "You are a helpful assitant that translates English to French. Translate the user sentence.",
+        "You are an expert financial audit consultant. Your goal is to analyze invoice data and detect potential irregularities.",
     ),
     (
         "human",
-        "I love programming."
+        "I received an invoice for €5,500 for 'coffee consulting services' on a Sunday. Does it seem suspicious to you? Justify your answer."
     ),
 ]
 
