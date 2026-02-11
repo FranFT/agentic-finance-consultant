@@ -9,8 +9,6 @@ app_settings = AppSettings(env_file='config/dev.env')
 # Document loader
 loader = DocumentLoader('input/invoice-0-4.pdf')
 
-print(loader.get_document_text())
-
 # Define Gemini Model
 model = ChatGoogleGenerativeAI(
     model=app_settings.google_gemini_model_name,
@@ -23,7 +21,7 @@ message = [
     ),
     (
         "human",
-        f"I received an invoice {loader.docs[0]}. Does it seem suspicious to you? Justify your answer."
+        f"I received an invoice {loader.get_document_text()}. Does it seem suspicious to you? Justify your answer."
     ),
 ]
 
