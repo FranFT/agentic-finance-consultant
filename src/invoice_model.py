@@ -1,5 +1,6 @@
-from datetime import datetime
-from pydantic import BaseModel, Field, PositiveInt, List
+from datetime import date
+from typing import List
+from pydantic import BaseModel, Field, PositiveInt
 
 class LineItem(BaseModel):
     """
@@ -16,7 +17,7 @@ class Invoice(BaseModel):
     """
     vendor_name: str
     invoice_number: int
-    invoice_date: datetime.date
+    invoice_date: date
     line_items: List[LineItem] = Field(..., description="List of line items in the invoice.")
 
     # Calculate total amount automatically.

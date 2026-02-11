@@ -1,6 +1,7 @@
 langchain
 langchain-google-genai
 langchain-community
+langchain-google-vertexai
 pydantic
 pydantic_settings
 python-dotenv
