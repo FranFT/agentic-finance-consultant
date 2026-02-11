@@ -1,5 +1,7 @@
 langchain
 langchain-google-genai
+langchain-community
 pydantic
 pydantic_settings
 python-dotenv
+pypdf
