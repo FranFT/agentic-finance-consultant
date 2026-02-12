@@ -19,12 +19,12 @@ class DocumentLoader():
         """
         Returns all pages from the document 
         """
-        output = "\n".join([document.page_content for document in self.doc]) if len(self.doc > 0) else ""
+        output = "\n".join([document.page_content for document in self.doc]) if len(self.doc) > 0 else ""
         return output
     
     def get_document_metadata(self):
         """
         Returns document metadata
         """
-        output = self.doc[0].metadata if len(self.doc > 0) else ""
+        output = self.doc[0].metadata if len(self.doc) > 0 else ""
         return output
