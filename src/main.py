@@ -20,6 +20,7 @@ agent = create_agent(
     system_prompt="You are an expert financial audit consultant. Your goal is to extract and analyze invoice data and detect potential irregularities."
 )
 
+# Running agent
 result = agent.invoke({
     "messages": [{"role": "user", "content": f"I received the following invoice {loader.get_document_text()}. Does it seem suspicious to you? Justify your answer."}]
 })
