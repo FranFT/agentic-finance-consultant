@@ -1,0 +1,5 @@
+Rule #1: Invoices over 1000€ won't be accepted.
+Rule #2: Invoices must have at least 1 line item.
+Rule #3: Invoices with 5 line items or less will be valid.
+Rule #4: Invoices with 5 to 10 line items will be valid but considered suspicious.
+Rule #5: Invoices with 11 or more line items won't be valid.

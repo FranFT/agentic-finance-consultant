@@ -16,9 +16,11 @@ class Invoice(BaseModel):
     Defining main invoice model
     """
     vendor_name: str
-    invoice_number: int
+    invoice_number: str
     invoice_date: date
     line_items: List[LineItem] = Field(..., description="List of line items in the invoice.")
+    is_compliant: bool = Field(description="True if the invoice follows the company rules")
+    compliance_reason: str = Field(description="Detailed reason why the invoices is or not compliance")
 
     # Calculate total amount automatically.
     @property
