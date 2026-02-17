@@ -3,12 +3,16 @@ from document_loader import DocumentLoader
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_agent
 from invoice_model import Invoice
+from document_text_splitter import DocumentTextSplitter
 
 # Loading dev settings
 app_settings = AppSettings(env_file='config/dev.env')
 
-# Document loader
-loader = DocumentLoader('input/invoice-0-4.pdf')
+# Load company policies
+loader = DocumentLoader('policies/GlobalCorp Travel and Expense (T&E) Policy Manual.pdf')
+
+# Define policies document text splitter
+document_text_splitter = DocumentTextSplitter()
 
 # Getting company policies
 f = open('policies/rules.txt')
